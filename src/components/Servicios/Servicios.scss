@@ -1,0 +1,218 @@
+// Variables
+$primary-color: #0286c5;
+$hover-color: #023f6e;
+$text-color: #151515;
+$desktop-padding: 80px 120px;
+$mobile-padding: 80px 24px;
+$border-radius: 8px;
+$transition-default: 0.3s ease;
+$shadow-default: 0 4px 16px rgba(0, 0, 0, 0.1);
+$shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+$mobile-breakpoint: 991px;
+
+// Mixins
+@mixin gilroy-text($size: 1rem, $weight: 400) {
+  font-family: if($weight > 400, "Gilroy-bold", "Gilroy");
+  font-size: $size;
+  font-weight: $weight;
+  color: $text-color;
+}
+
+// Sección de servicios
+.servicios {
+  position: relative;
+  background-color: white;
+
+  // Primera fila - layout principal
+  &__first-row {
+    padding: $desktop-padding;
+    display: flex;
+    align-items: stretch; // Para que las columnas tengan la misma altura
+  }
+
+  // Segunda fila - tarjetas de servicios
+  &__second-row {
+    padding: $desktop-padding;
+    padding-top: 0;
+  }
+
+  // Título principal
+  &__title {
+    @include gilroy-text(42px);
+    margin-bottom: 38px;
+  }
+
+  // Descripción / Párrafo principal
+  &__description {
+    @include gilroy-text;
+    max-width: 499px;
+    line-height: 19.41px;
+    margin-bottom: 30px;
+  }
+
+  // Botón CTA con efecto hover circular
+  &__cta-button {
+    position: relative;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: $border-radius;
+    padding: 12px 24px;
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+    z-index: 1;
+    margin-bottom: 30px;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background-color: $hover-color;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease-in-out, height 0.6s ease-in-out;
+      z-index: -1;
+    }
+
+    &:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  // Columna de texto
+  &__text-column {
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Centra verticalmente el contenido
+  }
+
+  // Contenido de texto
+  &__text-content {
+    margin-bottom: 2rem;
+  }
+
+  // Columna de imágenes
+  &__image-column {
+    padding-left: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  // Grid de imágenes
+  &__image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 15px;
+    height: 100%;
+    width: 100%;
+  }
+
+  // Item del grid
+  &__grid-item {
+    overflow: hidden;
+    border-radius: $border-radius;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1; // Mantiene una proporción cuadrada
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // Cambiado de 'contain' a 'cover' para llenar el espacio
+      transition: transform $transition-default;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  // Contenedor de tarjetas
+  &__cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  // Tarjeta individual
+  &__card {
+    flex: 1;
+    border: none !important;
+    border-radius: $border-radius;
+    transition: transform $transition-default, box-shadow $transition-default;
+
+    &:hover {
+      transform: translateY(-5px);
+      //box-shadow: $shadow-hover;
+    }
+  }
+
+  // Título de tarjeta
+  &__card-title {
+    @include gilroy-text(20px, 600);
+    margin-bottom: 15px;
+  }
+
+  // Texto de tarjeta
+  &__card-text {
+    @include gilroy-text(16px);
+    line-height: 1.5;
+  }
+
+  // Estilos responsivos
+  @media (max-width: $mobile-breakpoint) {
+    &__first-row {
+      padding: $mobile-padding;
+    }
+
+    &__second-row {
+      padding: 0 24px 80px;
+    }
+    &__text-column,
+    &__image-column {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &__title {
+      @include gilroy-text(36px);
+      margin-top: 0;
+    }
+
+    &__description {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &__image-grid {
+      grid-template-columns: repeat(
+        3,
+        1fr
+      ) !important; // Mantener 3 columnas en móvil
+      margin-top: 30px;
+      margin-bottom: 30px;
+      gap: 10px !important; // Reducir el espacio entre imágenes en móvil
+    }
+
+    &__grid-item {
+      aspect-ratio: 1 / 1; // Mantener proporción cuadrada
+      height: auto;
+    }
+
+    &__cards-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &__card {
+      margin-bottom: 20px;
+    }
+  }
+}

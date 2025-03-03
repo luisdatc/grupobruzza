@@ -1,0 +1,116 @@
+// Variables
+$font-primary: "Gilroy";
+$font-bold: "Gilroy-bold";
+$desktop-padding: 120px;
+$mobile-padding: 80px 24px;
+$card-border-radius: 8px;
+$title-margin-bottom: 48px;
+$title-font-size: 42px;
+$card-title-font-size: 18px;
+$card-text-font-size: 1rem;
+$mobile-card-height: 299px;
+$mobile-breakpoint: 768px;
+
+// Sección principal del equipo
+.equipo {
+  padding: $desktop-padding;
+  background-color: white;
+
+  // Título principal
+  &__title {
+    margin-bottom: $title-margin-bottom;
+    text-align: center;
+    font-family: $font-bold;
+    font-size: $title-font-size;
+  }
+
+  // Tarjeta de miembro del equipo
+  &__card {
+    border: none;
+    border-radius: $card-border-radius;
+    overflow: hidden;
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    height: $mobile-card-height;
+
+    // Contenedor flexible para móvil/desktop
+    &-wrapper {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+
+      @media (min-width: $mobile-breakpoint) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  // Columna de imagen
+  &__image-col {
+    width: 50%;
+    height: 100%;
+
+    @media (min-width: $mobile-breakpoint) {
+      width: 100%;
+      height: 200px;
+    }
+  }
+
+  // Contenedor de imagen
+  &__image-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  // Imagen de miembro
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  // Columna de contenido
+  &__content-col {
+    width: 50%;
+    height: 100%;
+
+    @media (min-width: $mobile-breakpoint) {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  // Contenido/texto
+  &__content {
+    padding: 0.75rem;
+
+    @media (min-width: $mobile-breakpoint) {
+      padding: 1.5rem;
+    }
+  }
+
+  // Nombre del miembro
+  &__member-name {
+    font-family: $font-bold;
+    font-size: $card-title-font-size;
+    margin-bottom: 0.5rem;
+  }
+
+  // Rol/cargo del miembro
+  &__member-role {
+    font-family: $font-primary;
+    font-size: $card-text-font-size;
+  }
+
+  // Media query para móviles
+  @media (max-width: 767px) {
+    padding: $mobile-padding;
+
+    &__content {
+      font-size: 0.9rem;
+    }
+  }
+}

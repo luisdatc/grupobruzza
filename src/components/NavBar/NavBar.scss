@@ -1,0 +1,255 @@
+// Mixins
+@mixin breakpoint($point) {
+  @if $point == lg {
+    @media (min-width: 992px) {
+      @content;
+    }
+  }
+}
+
+// Variables
+$primary-color: #0286c5;
+$text-color: #000;
+$bg-color: #fff;
+$transition-speed: 0.3s;
+$shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+$max-width: 1400px;
+
+// Base header styles
+.header {
+  background: $bg-color;
+  width: 100%;
+  padding: 0 3rem;
+  transition: all $transition-speed ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  // Scrolled state
+  &--scrolled {
+    box-shadow: $shadow;
+
+    .header__content {
+      height: 70px;
+    }
+  }
+
+  // Main content container
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 80px;
+    color: $text-color;
+    font-family: "Roboto Mono", monospace;
+    position: relative;
+    z-index: 100;
+    transition: height $transition-speed ease;
+    max-width: $max-width;
+
+    @include breakpoint(lg) {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+    }
+  }
+
+  // Logo
+  &__logo {
+    grid-column: 1;
+
+    img {
+      height: 60px;
+      width: 75px;
+    }
+  }
+
+  // Mobile logo
+  &__logo-mobile {
+    padding: 20px;
+    align-self: flex-start;
+
+    img {
+      height: 40px;
+      width: auto;
+    }
+
+    @include breakpoint(lg) {
+      display: none;
+    }
+  }
+
+  // Navigation
+  &__nav {
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background: $bg-color;
+    transform: translate(0);
+    transition: $transition-speed ease transform;
+    overflow-y: auto; // Añadido para permitir scroll
+
+    // Open state for mobile
+    &--open {
+      transform: translate(100%);
+    }
+
+    @include breakpoint(lg) {
+      grid-column: 2;
+      justify-self: center;
+      transform: none;
+      flex-direction: row;
+      background: transparent;
+      width: auto;
+      height: 100%;
+      position: static;
+      overflow-y: visible; // Restauramos el comportamiento normal en desktop
+    }
+  }
+
+  // Navigation list
+  &__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    width: 100%; // Asegura que la lista ocupe todo el ancho disponible
+
+    @include breakpoint(lg) {
+      flex-direction: row;
+      gap: 30px;
+      margin: 0 0 0 auto;
+      margin-right: 20px;
+      width: auto; // Restaura tamaño automático en desktop
+    }
+  }
+
+  // Navigation link
+  &__nav-link {
+    text-decoration: none;
+    color: $text-color;
+    font-size: 1rem;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color $transition-speed ease;
+    white-space: nowrap;
+    font-family: "Gilroy";
+
+    // Efecto de border bottom tanto en móvil como en escritorio
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $primary-color;
+      transition: width $transition-speed ease;
+    }
+
+    &:hover {
+      color: $primary-color;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    @include breakpoint(lg) {
+      font-size: 1rem;
+    }
+  }
+
+  // Social icons
+  &__socials {
+    display: none;
+
+    @include breakpoint(lg) {
+      grid-column: 3;
+      display: flex;
+      gap: 20px;
+
+      a {
+        color: $text-color;
+        font-size: 20px;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  // Mobile social icons
+  &__socials-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 15px 0;
+    width: 100%;
+    margin-top: 10px;
+
+    a {
+      color: $text-color;
+      font-size: 24px;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+    @include breakpoint(lg) {
+      display: none;
+    }
+  }
+
+  // Toggle button for mobile
+  &__toggle-btn {
+    cursor: pointer;
+    font-size: 24px;
+    display: none;
+    background: none;
+    border: none;
+    color: $text-color;
+
+    @media (max-width: 991px) {
+      display: block;
+    }
+  }
+
+  // Close button for mobile
+  &__close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: $text-color;
+    padding: 0 1.5rem;
+    background: none;
+    border: none;
+
+    @include breakpoint(lg) {
+      display: none;
+    }
+  }
+}
+
+// Add padding to body to prevent content from hiding behind fixed navbar
+body {
+  padding-top: 80px;
+}

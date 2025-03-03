@@ -1,0 +1,95 @@
+// Variables
+$font-primary: "Gilroy";
+$font-bold: "Gilroy-bold";
+$color-text: #151515;
+$transition-speed: 0.3s;
+$desktop-padding: 0 120px 62px 120px;
+$mobile-padding: 0 24px 62px 24px;
+$icon-size-desktop: 60px;
+$icon-size-mobile: 50px;
+$breakpoint-mobile: 768px;
+
+// Sección Social
+.social {
+  text-align: center;
+  padding: $desktop-padding;
+  background-color: white;
+
+  // Título de la sección
+  &__title {
+    margin-bottom: 2.25rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: $font-bold;
+  }
+
+  // Grid de iconos sociales
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  // Ítem individual de red social
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform $transition-speed ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  // Enlace de la red social
+  &__link {
+    text-decoration: none;
+    color: $color-text;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // Icono de la red social
+  &__icon {
+    width: $icon-size-desktop;
+    height: $icon-size-desktop;
+    transition: transform $transition-speed ease;
+  }
+
+  // Nombre de la red social
+  &__name {
+    font-family: $font-primary;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    font-weight: 400;
+  }
+
+  // Estilos para dispositivos móviles
+  @media (max-width: $breakpoint-mobile) {
+    padding: $mobile-padding;
+
+    &__grid {
+      gap: 1rem;
+      max-width: 160px;
+      margin: 0 auto;
+    }
+
+    &__item {
+      width: 45%;
+      margin-bottom: 0.5rem;
+    }
+
+    &__icon {
+      width: $icon-size-mobile;
+      height: $icon-size-mobile;
+    }
+
+    &__name {
+      font-size: 0.75rem;
+      margin-top: 0.2rem;
+    }
+  }
+}

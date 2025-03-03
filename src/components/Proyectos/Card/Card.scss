@@ -1,0 +1,140 @@
+/* Card.scss - Siguiendo metodología BEM */
+
+// Variables
+$transition-default: 0.5s ease-in-out;
+$transition-content: 0.3s ease-in-out;
+$border-radius: 30px;
+$hover-inset: 20px;
+$mobile-breakpoint: 768px;
+
+// Block - project-card
+.project-card {
+  aspect-ratio: 1 / 0.7;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+
+  // Element - image container
+  &__image-container {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    position: relative;
+  }
+
+  // Element - image
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit;
+    transition: $transition-default;
+  }
+
+  // Element - mobile title overlay
+  &__mobile-title {
+    display: none; // Oculto por defecto, visible solo en móvil
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 15px;
+    z-index: 2;
+
+    h2 {
+      margin: 0;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
+    }
+
+    @media (max-width: $mobile-breakpoint) {
+      display: block; // Mostrar en mobile
+    }
+  }
+
+  // Element - content container
+  &__content {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: $transition-content;
+    color: white;
+    z-index: 1;
+
+    @media (max-width: $mobile-breakpoint) {
+      display: none; // Ocultar en móvil ya que mostraremos el título arriba
+    }
+  }
+
+  // Element - title
+  &__title {
+    margin: 0;
+    padding: 0;
+    // Las propiedades comentadas se mantienen para referencia futura
+    /*
+    font-size: 1.5rem;
+    font-family: "Gilroy-bold";
+    */
+  }
+
+  // Element - description (actualmente comentado en el componente)
+  &__description {
+    margin-top: 0.5rem;
+  }
+
+  // Pseudo-element - border effect
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid white;
+    border-radius: $border-radius;
+    opacity: 0;
+    transition: $transition-content;
+    pointer-events: none;
+
+    @media (max-width: $mobile-breakpoint) {
+      display: none; // Ocultar borde en móvil
+    }
+  }
+
+  // Hover states - solo para desktop
+  @media (min-width: 769px) {
+    &:hover {
+      // Modifier - image on hover
+      .project-card__image {
+        filter: brightness(1);
+        // El filtro grayscale está comentado pero se mantiene para referencia
+        // filter: grayscale(0.5) brightness(1);
+      }
+
+      // Modifier - content on hover
+      .project-card__content {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      // Modifier - border effect on hover
+      &::after {
+        opacity: 1;
+        inset: $hover-inset;
+      }
+    }
+  }
+
+  // Focus state for accessibility
+  &:focus {
+    outline: 2px solid #4a90e2;
+    outline-offset: 2px;
+  }
+}

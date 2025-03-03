@@ -1,0 +1,409 @@
+// Variables
+$primary-color: #0286c5;
+$hover-color: #023f6e;
+$text-color-light: #fefefe;
+$text-color-dark: #151515;
+$border-radius: 8px;
+$panel-border-radius: 12px;
+$panel-bg: rgba(8, 8, 8, 0.25);
+
+// Breakpoints
+$breakpoint-xs: 575px; // Extra small devices
+$breakpoint-sm: 767px; // Small devices
+$breakpoint-md: 992px; // Medium devices
+
+// Estilos base
+.about {
+  position: relative;
+  // min-height: 100vh;
+  padding: 80px 80px;
+  overflow: visible;
+
+  // Elementos de fondo
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  // Paneles principales
+  &__info-panel,
+  &__benefits-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 32px !important;
+    border-radius: $panel-border-radius;
+    background: $panel-bg;
+    backdrop-filter: blur(6px);
+    margin-top: 20px;
+    height: 100%;
+  }
+
+  &__info-panel {
+    width: 337px !important;
+  }
+
+  &__benefits-panel {
+    width: 603px;
+  }
+
+  // Título principal
+  &__title {
+    color: $text-color-light;
+    font-kerning: none;
+    font-family: "Gilroy-bold";
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 38px;
+    width: auto;
+    max-width: 400px;
+  }
+
+  // Descripción principal
+  &__description {
+    color: $text-color-light;
+    font-kerning: none;
+    font-family: "Gilroy";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 20px;
+    width: auto;
+    max-width: 400px;
+  }
+
+  // Título de beneficios
+  &__benefits-title {
+    color: $text-color-light;
+    font-family: "Gilroy-Bold";
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  // Contenedor del botón
+  &__button-container {
+    display: flex;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 20px;
+  }
+
+  // Botón CTA
+  &__cta-button {
+    position: relative;
+    background-color: $primary-color;
+    border: none;
+    border-radius: $border-radius;
+    padding: 16px 40px;
+    height: 50px;
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: fit-content;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background-color: $hover-color;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease-in-out, height 0.6s ease-in-out;
+      z-index: -1;
+    }
+
+    &:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+    &-link {
+      color: white;
+      text-decoration: none;
+      font-family: "Gilroy";
+      font-size: 1rem;
+    }
+  }
+
+  // Tarjeta de beneficio
+  &__benefit-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: transparent !important;
+    border: none !important;
+    margin-bottom: 16px;
+
+    .card-body {
+      padding: 16px 0;
+      width: 100%;
+    }
+  }
+
+  // Icono de beneficio
+  &__benefit-icon {
+    width: 65px !important;
+    height: 60px;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  // Título de tarjeta de beneficio
+  &__benefit-title.h5 {
+    font-family: "Gilroy-bold";
+    font-size: 1rem;
+    font-weight: 400;
+    color: $text-color-light;
+    margin: 16px 0 8px;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  // Texto de tarjeta de beneficio
+  &__benefit-text {
+    font-family: "Gilroy";
+    font-size: 14px;
+    font-weight: 400;
+    color: $text-color-light;
+    text-align: center;
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  // Media queries para mobile
+  @media (max-width: 768px) {
+    padding: 40px 1rem;
+
+    &__info-panel,
+    &__benefits-panel {
+      width: 100% !important;
+      min-height: auto;
+      padding: 24px !important;
+    }
+
+    &__info-panel {
+      margin-bottom: 24px;
+    }
+
+    &__benefits-panel {
+      margin-top: 24px;
+    }
+
+    &__title {
+      font-size: 36px;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &__description {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /*&__button-container {
+      justify-content: center; el boton en el centro
+    }*/
+
+    &__benefit-card.card {
+      flex-direction: row;
+      text-align: left;
+      align-items: flex-start;
+      padding: 0;
+      margin-bottom: 24px;
+
+      .card-body {
+        padding: 0 0 0 16px;
+        flex: 1;
+        min-width: 0;
+      }
+    }
+
+    &__benefit-icon {
+      margin: 0;
+      flex-shrink: 0;
+    }
+
+    &__benefit-title.h5 {
+      text-align: left;
+      margin: 0 0 8px;
+      font-size: 0.9rem;
+    }
+
+    &__benefit-text {
+      text-align: left;
+      font-size: 13px;
+    }
+  }
+
+  // Media queries para tablets pequeñas (576px-767px)
+  @media (min-width: 576px) and (max-width: $breakpoint-sm) {
+    padding-top: 40px;
+
+    &__info-panel,
+    &__benefits-panel {
+      width: 100% !important;
+      padding: 24px;
+    }
+
+    .row-cols-md-2 > * {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    &__benefit-title.h5,
+    &__benefit-text {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  // Media queries para tablets (768px-992px)
+  @media (min-width: 768px) and (max-width: $breakpoint-md) {
+    padding: 60px 40px;
+
+    &__info-panel,
+    &__benefits-panel {
+      padding: 24px !important;
+    }
+
+    &__info-panel {
+      width: 45% !important;
+    }
+
+    &__benefits-panel {
+      width: 50% !important;
+    }
+
+    &__title {
+      font-size: 32px;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &__description {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &__benefit-title.h5 {
+      font-size: 0.9rem;
+    }
+
+    &__benefit-text {
+      font-size: 12px;
+    }
+
+    .row-cols-md-2 > * {
+      flex: 0 0 50%;
+      max-width: 50%;
+      padding: 0 8px;
+    }
+
+    &__benefit-icon {
+      width: 50px !important;
+      height: 45px;
+    }
+
+    &__benefit-card .card-body {
+      min-width: 0;
+    }
+  }
+
+  // Media queries para móviles (menos de 576px)
+  @media (max-width: $breakpoint-xs) {
+    padding-top: 30px;
+
+    &__info-panel,
+    &__benefits-panel {
+      width: 100% !important;
+      min-height: auto;
+      padding: 20px !important;
+    }
+
+    &__title {
+      font-size: 28px;
+      width: 100%;
+      margin-bottom: 24px;
+    }
+
+    &__description {
+      width: 100%;
+      font-size: 0.9rem;
+    }
+
+    &__benefits-title {
+      font-size: 18px;
+      margin-bottom: 20px !important;
+    }
+
+    .row-cols-1 > * {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    &__benefit-card.card {
+      flex-direction: row;
+      text-align: left;
+      width: 100%;
+      margin-bottom: 16px;
+      padding: 0;
+    }
+
+    &__benefit-card .card-body {
+      padding: 0 0 0 16px;
+      min-width: 0;
+    }
+
+    &__benefit-icon {
+      width: 50px !important;
+      height: 45px;
+    }
+
+    &__benefit-title.h5 {
+      font-size: 0.9rem;
+      width: 100%;
+    }
+
+    &__benefit-text {
+      font-size: 13px;
+      width: 100%;
+    }
+
+    &__cta-button {
+      padding: 12px 30px;
+      height: 44px;
+      font-size: 0.9rem;
+      justify-content: center;
+    }
+  }
+}

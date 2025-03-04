@@ -31,8 +31,6 @@ const Proyectos = () => {
   return (
     <section id="proyectos" className="proyectos">
       <Container fluid className="proyectos__container">
-        <h2 className="proyectos__title visually-hidden">Proyectos</h2>
-
         {projectGroups.map((group, groupIndex) => (
           <Row
             key={`group-${groupIndex}`}

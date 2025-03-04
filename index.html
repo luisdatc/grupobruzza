@@ -4,20 +4,110 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/grupobruzza-menu.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grupo Bruzza | Innovación en diseño, construcción y obra</title>
 
+    <!-- Meta descripciones que ya tienes -->
     <meta
       name="description"
       content="Grupo Bruzza ofrece soluciones integrales en Diseño, Construcción y Obra. Optimizamos espacios comerciales y residenciales con tecnología avanzada, innovación constante y eficiencia garantizada. Solicita tu diagnóstico personalizado ahora."
     />
-
     <meta
       name="keywords"
       content="grupo bruzza, diseño arquitectónico, construcción de edificios, obra civil, facility management, mantenimiento preventivo, gestión edilicia, soluciones tecnológicas construcción, reformas integrales, innovación arquitectónica, eficiencia inmobiliaria, diagnóstico construcción"
     />
-    <title>Grupo Bruzza</title>
+
+    <!-- Etiquetas Open Graph para compartir en redes sociales -->
+    <meta
+      property="og:title"
+      content="Grupo Bruzza | Innovación en diseño, construcción y obra"
+    />
+    <meta
+      property="og:description"
+      content="Soluciones integrales en Diseño, Construcción y Obra con tecnología avanzada e innovación constante."
+    />
+    <meta property="og:image" content="/grupobruzza-nav.svg" />
+    <meta property="og:url" content="https://grupobruzza.com.ar" />
+    <meta property="og:type" content="website" />
+
+    <!-- Etiqueta canónica -->
+    <link rel="canonical" href="https://grupobruzza.com.ar" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Grupo Bruzza",
+        "url": "https://grupobruzza.com.ar",
+        "logo": "https://grupobruzza.com.ar/grupobruzza-nav.svg",
+        "description": "Soluciones integrales y tecnológicas para empresas y administraciones de consorcios. Expertos en construcción, mantenimiento y facility management.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Buenos Aires",
+          "addressRegion": "CABA",
+          "addressCountry": "Argentina"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+54-9-11-2384-5353",
+          "contactType": "customer service",
+          "email": "info@grupobruzza.com.ar"
+        },
+        "sameAs": [
+          "https://www.instagram.com/bruzzagrupo",
+          "https://www.linkedin.com/company/grupobruzza/",
+          "https://www.facebook.com/share/1BSfnzQGF3/"
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Grupo Bruzza",
+        "image": "https://grupobruzza.com.ar/home-image.jpeg",
+        "url": "https://grupobruzza.com.ar",
+        "telephone": "+54-9-11-2384-5353",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Buenos Aires",
+          "addressRegion": "CABA",
+          "addressCountry": "Argentina"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "-34.6037",
+          "longitude": "-58.3816"
+        },
+        "service": [
+          {
+            "@type": "Service",
+            "name": "Construcción y Obra",
+            "description": "Soluciones integrales para proyectos de construcción y reforma."
+          },
+          {
+            "@type": "Service",
+            "name": "Facility Management",
+            "description": "Gestión integral de instalaciones y edificios."
+          },
+          {
+            "@type": "Service",
+            "name": "Mantenimiento de Edificios",
+            "description": "Servicios preventivos y correctivos para instalaciones."
+          }
+        ]
+      }
+    </script>
   </body>
 </html>

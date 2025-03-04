@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
 import { motion, AnimatePresence } from "framer-motion";
 import AOS from "aos";
 import "./Home.scss";
@@ -74,7 +73,7 @@ const Home = () => {
   };
 
   return (
-    <section className="home" id="inicio">
+    <section className="home" id="inicio" lang="es">
       {/* Transition overlay */}
       <AnimatePresence>
         {isTransitioning && (
@@ -102,9 +101,10 @@ const Home = () => {
           >
             <div className="home__content">
               <h1 className="home__title">
-                Innovación en diseño,
-                <br />
-                construcción y obra
+                <span className="home__title-main">Innovación en diseño</span>
+                <span className="home__title-secondary">
+                  , construcción y obra
+                </span>
               </h1>
               <p className="home__description">
                 Soluciones integrales y tecnológicas para empresas

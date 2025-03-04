@@ -29,6 +29,8 @@ const Equipo = () => {
                         className="equipo__image"
                         alt={`${miembro.title} - ${miembro.text}`}
                         loading="lazy"
+                        width="300" // Añadir dimensiones explícitas
+                        height="300"
                       />
                     </div>
                   </div>

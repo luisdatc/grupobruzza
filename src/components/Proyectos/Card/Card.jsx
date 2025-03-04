@@ -5,8 +5,8 @@ const Card = ({ imageSrc, title, description, onClick, className = "" }) => (
   <div className={`project-card ${className}`} onClick={onClick}>
     <div className="project-card__image-container">
       <img
-        src={imageSrc || "/bg.png"}
-        alt={title}
+        src={imageSrc}
+        alt={`Proyecto ${title} - Grupo Bruzza`}
         className="project-card__image"
       />
       {/* Título visible en móvil en la parte superior izquierda */}

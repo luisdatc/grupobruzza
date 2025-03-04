@@ -3,9 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import equipoData from "./data/equipo";
 import "./Equipo.scss";
 
-/**
- * Componente que muestra la sección del equipo con tarjetas para cada miembro
- */
 const Equipo = () => {
   return (
     <section className="equipo" id="elequipo">
@@ -17,15 +14,14 @@ const Equipo = () => {
             <Col
               xs={12}
               sm={12}
-              md={4}
-              lg={4}
-              xl={4}
+              md={3}
+              lg={3}
+              xl={3}
               key={miembro.id}
               className="mb-4"
             >
               <article className="equipo__card">
                 <div className="equipo__card-wrapper">
-                  {/* Contenedor de imagen */}
                   <div className="equipo__image-col">
                     <div className="equipo__image-container">
                       <img
@@ -37,10 +33,18 @@ const Equipo = () => {
                     </div>
                   </div>
 
-                  {/* Contenedor de texto */}
                   <div className="equipo__content-col">
                     <div className="equipo__content">
-                      <h3 className="equipo__member-name">{miembro.title}</h3>
+                      <h3 className="equipo__member-name">
+                        <a
+                          href={miembro.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="equipo__linkedin-link"
+                        >
+                          {miembro.title}
+                        </a>
+                      </h3>
                       <p className="equipo__member-role">{miembro.text}</p>
                     </div>
                   </div>

@@ -55,12 +55,15 @@ const Servicios = () => {
                 construir, mantener y optimizar cada espacio, asegurando su
                 funcionalidad y durabilidad a largo plazo.
               </p>
-              <button
-                className="servicios__cta-button"
+              <a
+                className="servicios__cta-button servicios__cta-button-link"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Solicitar un diagnóstico personalizado"
+                href="https://wa.me/5491123845353?text=Hola,%20estoy%20interesado%20en%20solicitar%20un%20diagn%C3%B3stico.%20Me%20gustar%C3%ADa%20conocer%20los%20pasos%20a%20seguir%20y%20c%C3%B3mo%20programar%20una%20evaluaci%C3%B3n.%20%C2%A1Espero%C2%A0su%C2%A0respuesta!"
               >
                 Solicita un Diagnóstico
-              </button>
+              </a>
             </div>
           </Col>
 
@@ -106,4 +109,3 @@ const Servicios = () => {
 };
 
 export default Servicios;
-

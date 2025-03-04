@@ -113,4 +113,14 @@ $mobile-breakpoint: 768px;
       font-size: 0.9rem;
     }
   }
+
+  &__linkedin-link {
+    text-decoration: none;
+    color: #151515; // Azul de LinkedIn
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #0286c5;
+    }
+  }
 }

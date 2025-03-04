@@ -83,7 +83,7 @@ const NavBar = () => {
         <BsWhatsapp />
       </a>
       <a
-        href="https://instagram.com/"
+        href="https://www.instagram.com/bruzzagrupo?igsh=ZXZiN3R3Ym1mYmFs"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
@@ -172,4 +172,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-

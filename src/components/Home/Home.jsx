@@ -110,9 +110,15 @@ const Home = () => {
                 Soluciones integrales y tecnológicas para empresas
                 <br />y administraciones de consorcios
               </p>
-              <button className="home__button">
-                Contáctanos Ahora <span className="home__button-arrow">→</span>
-              </button>
+              <a
+                className="home__button home__button-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://wa.me/5491123845353?text=Hola,%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20Grupo%20Bruzza.%20%C2%BFPodr%C3%ADan%20asesorarme%20sobre%20c%C3%B3mo%20pueden%20ayudarme?%20%C2%A1Gracias!%0A"
+              >
+                Contáctanos Ahora
+                <span className="home__button-arrow">→</span>
+              </a>
             </div>
 
             <div className="home__image-wrapper">

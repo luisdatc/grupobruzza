@@ -9,7 +9,7 @@ const Footer = () => {
     {
       id: "phone",
       icon: <Telephone className="footer__contact-icon" />,
-      content: "+54 9 11 2394-5353",
+      content: "+54 9 11 2384-5353",
       href: "https://wa.me/91123945353",
       isLink: true,
     },

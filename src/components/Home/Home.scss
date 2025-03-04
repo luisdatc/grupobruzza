@@ -67,7 +67,6 @@ $transition-cubic: cubic-bezier(0.17, 0.67, 0.3, 1);
   // Button
   &__button {
     background-color: $primary-color;
-    color: white;
     border: none;
     height: 50px;
     border-radius: $border-radius;
@@ -75,15 +74,19 @@ $transition-cubic: cubic-bezier(0.17, 0.67, 0.3, 1);
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-weight: 500;
-    font-size: 1rem;
     transition: color 0.4s ease-in-out;
     margin-bottom: 1rem;
     position: relative;
     overflow: hidden;
     z-index: 1;
     margin-top: 0.75rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
     font-family: "Gilroy";
+    cursor: pointer;
+
     &::before {
       content: "";
       position: absolute;

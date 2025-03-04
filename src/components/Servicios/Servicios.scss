@@ -54,7 +54,6 @@ $mobile-breakpoint: 991px;
   &__cta-button {
     position: relative;
     background-color: $primary-color;
-    color: white;
     border: none;
     border-radius: $border-radius;
     padding: 12px 24px;
@@ -63,6 +62,11 @@ $mobile-breakpoint: 991px;
     z-index: 1;
     margin-bottom: 30px;
     cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-family: "Gilroy";
 
     &::before {
       content: "";

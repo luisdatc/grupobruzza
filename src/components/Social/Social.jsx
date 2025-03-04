@@ -15,7 +15,7 @@ const Social = () => {
       name: "Instagram",
       defaultImg: "/instagram-footer.svg",
       hoverImg: "/instagram-hover.svg",
-      link: "#",
+      link: "https://www.instagram.com/bruzzagrupo?igsh=ZXZiN3R3Ym1mYmFs",
       ariaLabel: "Visita nuestro perfil de Instagram",
     },
     {
@@ -23,7 +23,7 @@ const Social = () => {
       name: "LinkedIn",
       defaultImg: "/linkedin-footer.svg",
       hoverImg: "/linkedin-hover.svg",
-      link: "#",
+      link: "https://www.linkedin.com/company/grupobruzza/",
       ariaLabel: "Conéctate con nosotros en LinkedIn",
     },
     {
@@ -39,7 +39,7 @@ const Social = () => {
       name: "Facebook",
       defaultImg: "/facebook-footer.svg",
       hoverImg: "/facebook-hover.svg",
-      link: "#",
+      link: "https://www.facebook.com/share/1BSfnzQGF3/",
       ariaLabel: "Síguenos en Facebook",
     },
   ];
